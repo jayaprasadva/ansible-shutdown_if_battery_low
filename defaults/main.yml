@@ -1,0 +1,14 @@
+---
+
+## When the battery capacity in percent is less then the following value,
+## write a log entry every minute.
+shutdown_if_battery_low_limit_warn: 60
+
+## When the battery capacity in percent is less then the following value, the
+## system is going to shutdown.
+shutdown_if_battery_low_limit_shutdown: 20
+
+shutdown_if_battery_low_shutdown_delay: '+5m'
+
+shutdown_if_battery_low_script_filepath: "/usr/local/bin/shutdown_if_battery_low.sh"
+shutdown_if_battery_low_environment_filepath: "/etc/default/shutdown_if_battery_low"

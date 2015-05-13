@@ -1,0 +1,28 @@
+---
+
+- name: Copy script to target
+  copy:
+    src: shutdown_if_battery_low.sh
+    dest: '{{ shutdown_if_battery_low_script_filepath }}'
+    mode: 0755
+    owner: root
+    group: root
+  notify: [ 'Restart shutdown_if_battery_low' ]
+
+- name: Create systemd environment file
+  template:
+    src: 'shutdown_if_battery_low_env.j2'
+    dest: '/etc/default/shutdown_if_battery_low'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: [ 'Restart shutdown_if_battery_low' ]
+
+- name: Create systemd service file
+  template:
+    src: 'shutdown_if_battery_low.service.j2'
+    dest: '/etc/systemd/system/shutdown_if_battery_low.service'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: [ 'Reload systemd' ]

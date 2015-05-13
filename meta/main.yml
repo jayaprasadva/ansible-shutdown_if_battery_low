@@ -1,0 +1,22 @@
+---
+
+galaxy_info:
+  author: Robin Schneider
+  description: Shutdown the system if the build-in battery is low.
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+  categories:
+    - system
+  min_ansible_version: 1.3
+dependencies: []
+ansigenome_info:
+  # github_url: "https://github.com/ypid/ansible-apparmor"
+  git_branch: "master"
+  # galaxy_id: "3015"
+
+  travis: False
+
+  synopsis: |
+    Based on blogpost [Debian - Convert a EEE 701 as a server with embeded UPS](http://bernaerts.dyndns.org/linux/75-debian/200-debian-eeeserver-powerfailure).
