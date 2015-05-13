@@ -8,7 +8,11 @@ shutdown_if_battery_low_limit_warn: 60
 ## system is going to shutdown.
 shutdown_if_battery_low_limit_shutdown: 20
 
-shutdown_if_battery_low_shutdown_delay: '+5m'
+## Command to execute when battery capacity in percent <= shutdown_if_battery_low_limit_shutdown
+shutdown_if_battery_low_shutdown_command: 'shutdown --poweroff +5'
+
+## Sleep time between check.
+shutdown_if_battery_low_sleep: '6m'
 
 shutdown_if_battery_low_script_filepath: "/usr/local/bin/shutdown_if_battery_low.sh"
 shutdown_if_battery_low_environment_filepath: "/etc/default/shutdown_if_battery_low"

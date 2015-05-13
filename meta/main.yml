@@ -12,9 +12,9 @@ galaxy_info:
   min_ansible_version: 1.3
 dependencies: []
 ansigenome_info:
-  # github_url: "https://github.com/ypid/ansible-apparmor"
+  github_url: "https://github.com/ypid/ansible-shutdown_if_battery_low"
   git_branch: "master"
-  # galaxy_id: "3015"
+  galaxy_id: "3778"
 
   travis: False
 

@@ -3,9 +3,10 @@
 # Check every minute for shutdown in case of power failure and low battery level
 #
 
-BATTERY_WARN="$1"
-BATTERY_SHUTDOWN="$2"
-SHUTDOWN_DELAY="$3"
+LIMIT_WARN="$1"
+LIMIT_SHUTDOWN="$2"
+SHUTDOWN_COMMAND="$3"
+SLEEP="$4"
 
 # infinite loop
 while true; do
@@ -19,15 +20,15 @@ while true; do
 
     # If battery is in discharging state.
     if [ -n "$BATTERY_CAPACITY" ]; then
-        if [ "$BATTERY_CAPACITY" -lt "$BATTERY_SHUTDOWN" ]; then
+        if (( "$BATTERY_CAPACITY" <= "$LIMIT_SHUTDOWN" )); then
             # log shutdown process
-            logger --priority daemon.alert --tag shutdown_if_battery_low "Battery low: $BATTERY_CAPACITY %. Shutting down initiated."
+            logger --priority daemon.alert --tag shutdown_if_battery_low "Battery low: $BATTERY_CAPACITY %. Shutdown initiated."
 
-            shutdown --poweroff "$SHUTDOWN_DELAY"
-        elif [ "$BATTERY_CAPACITY" -lt "$BATTERY_WARN" ]; then
-            logger --priority daemon.warning --tag shutdown_if_battery_low "Battery low: $BATTERY_CAPACITY %. Shutting down at ${BATTERY_SHUTDOWN} %."
+            $SHUTDOWN_COMMAND
+        elif (( "$BATTERY_CAPACITY" <= "$LIMIT_WARN" )); then
+            logger --priority daemon.warning --tag shutdown_if_battery_low "Battery low: $BATTERY_CAPACITY %. Shutting down at ${LIMIT_SHUTDOWN} %."
         fi
     fi
 
-    sleep 1m
+    sleep "$SLEEP"
 done

@@ -1,10 +1,23 @@
 ## shutdown_if_battery_low
 
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.shutdown_if_battery_low-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/3778)
+[![Platforms](http://img.shields.io/badge/platforms-debian-lightgrey.svg?style=flat)](#)
 
 
 Shutdown the system if the build-in battery is low.
 
 Based on blogpost [Debian - Convert a EEE 701 as a server with embeded UPS](http://bernaerts.dyndns.org/linux/75-debian/200-debian-eeeserver-powerfailure).
+
+### Installation
+
+This role requires at least Ansible `v1.3`. To install it, run:
+
+    ansible-galaxy install ypid.shutdown_if_battery_low
+
+To install via git, run either:
+
+    git clone https://github.com/ypid/ansible-shutdown_if_battery_low ypid.shutdown_if_battery_low
+    git submodule add https://github.com/ypid/ansible-shutdown_if_battery_low roles/ypid.shutdown_if_battery_low
 
 
 
@@ -23,7 +36,11 @@ List of default variables available in the inventory:
     ## system is going to shutdown.
     shutdown_if_battery_low_limit_shutdown: 20
     
-    shutdown_if_battery_low_shutdown_delay: '+5m'
+    ## Command to execute when battery capacity in percent <= shutdown_if_battery_low_limit_shutdown
+    shutdown_if_battery_low_shutdown_command: 'shutdown --poweroff +5'
+    
+    ## Sleep time between check.
+    shutdown_if_battery_low_sleep: '6m'
     
     shutdown_if_battery_low_script_filepath: "/usr/local/bin/shutdown_if_battery_low.sh"
     shutdown_if_battery_low_environment_filepath: "/etc/default/shutdown_if_battery_low"
