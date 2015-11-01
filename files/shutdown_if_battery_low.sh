@@ -12,11 +12,12 @@ SLEEP="$4"
 while true; do
 
     # Example output from acpi --battery
+    # Battery 0: Full, 100%
     # Battery 0: Discharging, 88%, 03:13:24 remaining
     # Battery 0: Charging, 87%, 00:25:53 until charged
 
     # Get the battery status line indicating the discharging condition.
-    BATTERY_CAPACITY="`acpi --battery | grep Discharging | sed 's/.*, \([0-9]\+\)%.*/\1/g'`"
+    BATTERY_CAPACITY="$(acpi --battery | grep Discharging | sed 's/.*, \([0-9]\+\)%.*/\1/g')"
 
     # If battery is in discharging state.
     if [ -n "$BATTERY_CAPACITY" ]; then

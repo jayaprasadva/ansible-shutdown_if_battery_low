@@ -5,5 +5,5 @@
 
 - name: Restart shutdown_if_battery_low
   service:
-    name: shutdown_if_battery_low
-    state: restarted
+    name: 'shutdown_if_battery_low'
+    state: 'restarted'
