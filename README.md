@@ -61,6 +61,7 @@ shutdown_if_battery_low_environment_filepath: "/etc/default/shutdown_if_battery_
 ### Authors and license
 
 `shutdown_if_battery_low` role was written by:
+
 - [Robin Schneider](http://ypid.de/) | [e-mail](mailto:ypid@riseup.net) | [Twitter](https://twitter.com/ypid) | [GitHub](https://github.com/ypid)
 
 License: [AGPLv3](https://tldrlegal.com/license/gnu-affero-general-public-license-v3-%28agpl-3.0%29)
