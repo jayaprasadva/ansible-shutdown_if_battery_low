@@ -38,7 +38,7 @@ List of default variables available in the inventory:
 ---
 
 ## When the battery capacity in percent is less then the following value,
-## write a log entry every minute.
+## write a log entry check interval (refer to ``shutdown_if_battery_low_sleep``).
 shutdown_if_battery_low_limit_warn: 60
 
 ## When the battery capacity in percent is less then the following value, the
@@ -48,7 +48,7 @@ shutdown_if_battery_low_limit_shutdown: 20
 ## Command to execute when battery capacity in percent <= shutdown_if_battery_low_limit_shutdown
 shutdown_if_battery_low_shutdown_command: 'shutdown --poweroff +5'
 
-## Sleep time between check.
+## Check interval/sleep time between check.
 shutdown_if_battery_low_sleep: '6m'
 
 shutdown_if_battery_low_script_filepath: "/usr/local/bin/shutdown_if_battery_low.sh"
