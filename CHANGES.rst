@@ -18,3 +18,16 @@ Added
 ~~~~~
 
 - Initial coding and design. [ypid_]
+
+Changed
+~~~~~~~
+
+- Changed namespace from ``shutdown_if_battery_low_`` to ``shutdown_if_battery_low__``.
+  ``shutdown_if_battery_low_[^_]`` variables are hereby deprecated and you might need to
+  update your inventory. This oneliner might come in handy to do this.
+
+  .. code-block:: shell
+
+     git ls-files -z | xargs --null -I '{}' find '{}' -type f -print0 | xargs --null sed --in-place --regexp-extended 's/\<(shutdown_if_battery_low)_([^_])/\1__\2/g;'
+
+  [ypid_]
