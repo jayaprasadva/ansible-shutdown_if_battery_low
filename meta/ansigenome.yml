@@ -1,19 +1,19 @@
 ---
 
 ansigenome_info:
+  galaxy_url: 'https://galaxy.ansible.com/ypid/shutdown_if_battery_low'
   github_url: 'https://github.com/ypid/ansible-shutdown_if_battery_low'
   git_branch: 'master'
-  galaxy_id: '3778'
 
-  travis: False
+  travis: True
 
-  license_url: 'https://tldrlegal.com/license/gnu-affero-general-public-license-v3-(agpl-3.0)'
+  license_url: 'https://tldrlegal.com/license/gnu-affero-general-public-license-v3-%28agpl-3.0%29'
 
   authors:
-    - name: 'Robin Schneider'
-      url: 'http://ypid.de/'
+
+    - name:  'Robin Schneider'
+      url: 'https://me.ypid.de/'
       email: 'ypid@riseup.net'
-      twitter: 'ypid'
       github: 'ypid'
 
   synopsis: |

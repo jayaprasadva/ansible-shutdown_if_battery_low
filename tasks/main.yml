@@ -3,7 +3,7 @@
 - name: Copy script to target
   copy:
     src: 'shutdown_if_battery_low.sh'
-    dest: '{{ shutdown_if_battery_low_script_filepath }}'
+    dest: '{{ shutdown_if_battery_low__script_filepath }}'
     mode: 0755
     owner: root
     group: root
@@ -12,7 +12,7 @@
 - name: Create systemd environment file
   template:
     src: 'etc/default/shutdown_if_battery_low.j2'
-    dest: '/etc/default/shutdown_if_battery_low'
+    dest: '{{ shutdown_if_battery_low__environment_filepath }}'
     owner: 'root'
     group: 'root'
     mode: '0644'

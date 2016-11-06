@@ -2,8 +2,8 @@
 Description=Check every minute for shutdown in case of power failure and low battery level. See Ansible role ypid.shutdown_if_battery_low.
 
 [Service]
-EnvironmentFile={{ shutdown_if_battery_low_environment_filepath }}
-ExecStart={{ shutdown_if_battery_low_script_filepath }} ${LIMIT_WARN} ${LIMIT_SHUTDOWN} ${SHUTDOWN_COMMAND} ${SLEEP}
+EnvironmentFile={{ shutdown_if_battery_low__environment_filepath }}
+ExecStart={{ shutdown_if_battery_low__script_filepath }} ${LIMIT_WARN} ${LIMIT_SHUTDOWN} ${SHUTDOWN_COMMAND} ${SLEEP}
 
 [Install]
 WantedBy=multi-user.target
