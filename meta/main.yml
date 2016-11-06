@@ -5,15 +5,22 @@ dependencies: []
 galaxy_info:
 
   author: 'Robin Schneider'
-  description: 'Shutdown the system if the build-in battery is low.'
+  description: 'Shutdown the system if the build-in battery is low'
   license: 'AGPL-3.0'
-  min_ansible_version: '1.3'
+  min_ansible_version: '2.1.3'
 
   platforms:
 
     - name: Debian
       versions:
-      - jessie
+        - wheezy
+        - jessie
+
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
 
   galaxy_tags:
     - system

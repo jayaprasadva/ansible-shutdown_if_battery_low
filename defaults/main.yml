@@ -1,18 +1,50 @@
 ---
+# .. vim: foldmarker=[[[,]]]:foldmethod=marker
 
+# ypid.shutdown_if_battery_low default variables [[[
+# ==================================================
+
+# .. contents:: Sections
+#    :local:
+#
+# .. include:: includes/all.rst
+
+
+# .. envvar:: shutdown_if_battery_low_limit_warn [[[
+#
 ## When the battery capacity in percent is less then the following value,
 ## write a log entry check interval (refer to ``shutdown_if_battery_low_sleep``).
 shutdown_if_battery_low_limit_warn: 60
 
+                                                                   # ]]]
+# .. envvar:: shutdown_if_battery_low_limit_shutdown [[[
+#
 ## When the battery capacity in percent is less then the following value, the
 ## system is going to shutdown.
 shutdown_if_battery_low_limit_shutdown: 20
 
+                                                                   # ]]]
+# .. envvar:: shutdown_if_battery_low_shutdown_command [[[
+#
 ## Command to execute when battery capacity in percent <= shutdown_if_battery_low_limit_shutdown
 shutdown_if_battery_low_shutdown_command: 'shutdown --poweroff +5'
 
+                                                                   # ]]]
+# .. envvar:: shutdown_if_battery_low_sleep [[[
+#
 ## Check interval/sleep time between check.
 shutdown_if_battery_low_sleep: '6m'
 
-shutdown_if_battery_low_script_filepath: "/usr/local/bin/shutdown_if_battery_low.sh"
-shutdown_if_battery_low_environment_filepath: "/etc/default/shutdown_if_battery_low"
+                                                                   # ]]]
+# .. envvar:: shutdown_if_battery_low_script_filepath [[[
+#
+# File path where the main script will be copied to on the remote system.
+shutdown_if_battery_low_script_filepath: '/usr/local/bin/shutdown_if_battery_low.sh'
+
+                                                                   # ]]]
+# .. envvar:: shutdown_if_battery_low_environment_filepath [[[
+#
+# File path where the configuration variables are saved on the remote system.
+shutdown_if_battery_low_environment_filepath: '/etc/default/shutdown_if_battery_low'
+                                                                   # ]]]
+                                                                   # ]]]

@@ -1,0 +1,14 @@
+---
+
+- name: Configure shutdown if battery low
+  hosts: [ 'ypid_shutdown_if_battery_low' ]
+  become: True
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
+  roles:
+
+    - role: ypid.shutdown_if_battery_low
+      tags: [ 'role::shutdown_if_battery_low' ]

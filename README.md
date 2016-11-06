@@ -15,7 +15,7 @@ Based on blogpost [Debian - Convert a EEE 701 as a server with embeded UPS](http
 
 ### Installation
 
-This role requires at least Ansible `v1.3`. To install it, run:
+This role requires at least Ansible `v2.1.3`. To install it, run:
 
 ```Shell
 ansible-galaxy install ypid.shutdown_if_battery_low
