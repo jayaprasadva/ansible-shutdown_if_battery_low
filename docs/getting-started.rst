@@ -21,7 +21,7 @@ Add the hosts on which should shutdown if the build-in battery is low to the
 Example playbook
 ----------------
 
-Here's an example playbook that uses the ``ypid.shutdown_if_battery_low`` role:
+Here's an example playbook that uses the ypid.shutdown_if_battery_low_ role:
 
 .. literalinclude:: playbooks/shutdown_if_battery_low.yml
    :language: yaml
