@@ -11,7 +11,13 @@ and `human-readable changelog <http://keepachangelog.com/en/0.3.0/>`__.
 The current role maintainer_ is ypid_.
 
 
-ypid.shutdown_if_battery_low v0.1.0 - unreleased
+`ypid.shutdown_if_battery_low master`_ - unreleased
+---------------------------------------------------
+
+.. _ypid.shutdown_if_battery_low master: https://github.com/ypid/ansible-shutdown_if_battery_low/compare/v0.1.0...master
+
+
+ypid.shutdown_if_battery_low v0.1.0 - 2015-11-10
 ------------------------------------------------
 
 Added
