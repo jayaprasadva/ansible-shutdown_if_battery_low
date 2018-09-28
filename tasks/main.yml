@@ -1,5 +1,13 @@
 ---
 
+- name: Install required packages
+  package:
+    name: '{{ item }}'
+    state: 'present'
+  with_flattened:
+    - '{{ shutdown_if_battery_low__base_packages }}'
+    - '{{ shutdown_if_battery_low__packages }}'
+
 - name: Copy script to target
   copy:
     src: 'shutdown_if_battery_low.sh'

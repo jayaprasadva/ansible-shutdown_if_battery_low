@@ -10,6 +10,22 @@
 # .. include:: includes/all.rst
 
 
+# APT packages, version [[[
+# -------------------------
+
+# .. envvar:: shutdown_if_battery_low__base_packages [[[
+#
+# List of base APT packages to install.
+shutdown_if_battery_low__base_packages: [ 'acpi', 'bsdutils' ]
+
+                                                                   # ]]]
+# .. envvar:: shutdown_if_battery_low__packages [[[
+#
+# List of additional APT packages to install with shutdown_if_battery_low.
+shutdown_if_battery_low__packages: []
+
+                                                                   # ]]]
+                                                                   # ]]]
 # .. envvar:: shutdown_if_battery_low__limit_warn [[[
 #
 # When the battery capacity in percent is less then the following value,
