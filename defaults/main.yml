@@ -52,6 +52,12 @@ shutdown_if_battery_low__shutdown_command: 'shutdown --poweroff +5'
 shutdown_if_battery_low__sleep: '6m'
 
                                                                    # ]]]
+# .. envvar:: shutdown_if_battery_low__battery [[[
+#
+# Battery ID to check.
+shutdown_if_battery_low__battery: '0'
+
+                                                                   # ]]]
 # .. envvar:: shutdown_if_battery_low__script_filepath [[[
 #
 # File path where the main script will be copied to on the remote system.

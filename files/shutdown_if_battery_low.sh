@@ -7,6 +7,7 @@ LIMIT_WARN="$1"
 LIMIT_SHUTDOWN="$2"
 SHUTDOWN_COMMAND="$3"
 SLEEP="$4"
+BATTERY="${5:-0}"
 
 # infinite loop
 while true; do
@@ -17,7 +18,7 @@ while true; do
     # Battery 0: Charging, 87%, 00:25:53 until charged
 
     # Get the battery status line indicating the discharging condition.
-    BATTERY_CAPACITY="$(acpi --battery | grep Discharging | sed 's/.*, \([0-9]\+\)%.*/\1/g')"
+    BATTERY_CAPACITY="$(acpi --battery | grep "^Battery $BATTERY:" | grep Discharging | sed 's/.*, \([0-9]\+\)%.*/\1/g')"
 
     # If battery is in discharging state.
     if [ -n "$BATTERY_CAPACITY" ]; then
