@@ -5,7 +5,7 @@
 
 LIMIT_WARN="$1"
 LIMIT_SHUTDOWN="$2"
-SHUTDOWN_COMMAND="$3"
+SHUTDOWN_COMMAND="${3:-}"
 SLEEP="$4"
 BATTERY="${5:-0}"
 
@@ -26,7 +26,15 @@ while true; do
             # log shutdown process
             logger --priority daemon.alert --tag shutdown_if_battery_low "Battery low: $BATTERY_CAPACITY %. Shutdown initiated."
 
-            $SHUTDOWN_COMMAND
+            # Bash fallback `||` does not work when passed as variable.
+            if [[ -n "$SHUTDOWN_COMMAND" ]]; then
+                $SHUTDOWN_COMMAND
+            else
+                # Testing for molly-guard is only needed in non-default
+                # molly-guard configuration because this script was not started
+                # over ssh.
+                /lib/molly-guard/shutdown --poweroff +5 || shutdown --poweroff +5
+            fi
         elif (( "$BATTERY_CAPACITY" <= "$LIMIT_WARN" )); then
             logger --priority daemon.warning --tag shutdown_if_battery_low "Battery low: $BATTERY_CAPACITY %. Shutting down at ${LIMIT_SHUTDOWN} %."
         fi

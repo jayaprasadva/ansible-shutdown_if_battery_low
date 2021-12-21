@@ -43,13 +43,15 @@ shutdown_if_battery_low__limit_shutdown: 20
 # .. envvar:: shutdown_if_battery_low__shutdown_command [[[
 #
 # Command to execute when ``battery capacity in percent`` <= :envvar:`shutdown_if_battery_low__limit_shutdown`.
-shutdown_if_battery_low__shutdown_command: 'shutdown --poweroff +5'
+# If empty, the script executes `shutdown --poweroff +5` in a way that even
+# works with non-default molly-guard configurations.
+shutdown_if_battery_low__shutdown_command: ''
 
                                                                    # ]]]
 # .. envvar:: shutdown_if_battery_low__sleep [[[
 #
 # Check interval/sleep time between check.
-shutdown_if_battery_low__sleep: '6m'
+shutdown_if_battery_low__sleep: '1m'
 
                                                                    # ]]]
 # .. envvar:: shutdown_if_battery_low__battery [[[
